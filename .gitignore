@@ -1,0 +1,14 @@
+sjtu-badge-blue.pdf
+sjtu-logo-red.pdf
+sjtu-name-blue.pdf
+
+
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.gz
+*.pt
