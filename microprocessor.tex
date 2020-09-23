@@ -5,11 +5,13 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage{subfigure}
+\usepackage{booktabs}
 \geometry{left=2.54cm,right=2.54cm,top=3.18cm,bottom=3.18cm}%页边距
 \pagestyle{fancy}
 \lhead{\includegraphics[scale=1]{sjtu-logo-red.pdf}}  
 \rhead{Intel与AMD处理器发展历程报告} 
 \cfoot{第 \thepage\ 页\ 共 \pageref{LastPage} 页} 
+
 
 \begin{document}
 
@@ -23,11 +25,28 @@
         \Large \bfseries{518021910971 裴奕博}
     \end{center}
 \end{titlepage}
+
+\tableofcontents
+\newpage
 \section{CPU发展概述}
 1947年12月，由美国贝尔实验室的肖克利、巴丁和布拉顿组成的研究小组，发明了晶体管。这种新的材料工艺相比之前的真空电子管，体积小巧、无需预热、耗能极低，很快取代了电子管成为了新一代电子电路的首选。在随后的几十年间，伴随着集成电路的发明，由这种材料制成的电子电路规模越来越大。从小规模、中规模集成电路到大规模、超大规模集成电路。
-
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{figure/ICdev.jpg}
+        \caption{集成电路的发展}
+    \end{center}
+\end{figure}
 随着人类对计算机计算能力和便携性的要求不断提升，人们提出了“微型计算机”的概念，要实现这一点，首当其冲的就是将计算机的中央处理单元小型化。1971年，Intel公司制造出了第一个商用微处理器即4004，也宣告了第四代计算机时代的来临。从1971年至今的近50年间，随着个人计算机（PC）的成熟、发展和普及，作为计算机核心的CPU也得以迅猛发展。两家“本是同根生”的半导体公司，Intel和AMD，在这几十年间共同促成了CPU技术的不断提升，时至今日也是市面上处理器的最主流选择。本报告即梳理了从1971年至今，两家公司系列处理器的发展历程。
+\newpage
 \section{Intel系列处理器发展历程}
+1968年创立的Intel，是全球目前收入和市值最高的半导体公司。1971年，Intel的工程师发明了世界上第一款CPU4004。在之后的几十年间，集成电路的制造工艺和架构在不断进化，Intel却始终在大部分事件都在处理器市场中占据主导地位。本章将详细讲述Intel系列处理器的发展历程。
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=\textwidth]{figure/inteldev.jpg}
+        \caption{Intel系列处理器的发展}
+    \end{center}
+\end{figure}
 
 \subsection{1968-1978 Intel公司的创立与4004处理器的诞生}
 \subsubsection{Intel的创立}
@@ -70,7 +89,7 @@
 几乎与此同时，Intel也推出了8088处理器，将地址总线提升至20bit。两款处理器都采用了相同的16位x86架构。
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=0.4\textwidth]{figure/8086.jpg}
+        \includegraphics[width=0.3\textwidth]{figure/8086.jpg}
         \caption{Intel 8086}
     \end{center}
 \end{figure}
@@ -136,7 +155,72 @@
 然而在这一时期，从Pentium 4开始使用的P4架构“Netburst”出现了功耗和热量问题，在很长一段时间内，Intel无法将Netburst架构的处理器主频升至2GHz以上。随后，在此基础上改进的“Prescott”架构(被用于Pentium D)同样也出现了类似的问题。在一段短暂的时间中，Intel的在CPU领域的统治被AMD所打破。这也迫使Intel放弃Netburst架构，转而支持基于P6的Pentium M设计，这也促成了Intel新一代产品酷睿(Core)的诞生。
 
 \subsection{2006-至今 酷睿(Core)的又一次辉煌}
-随着AMD的步步紧逼，Intel不得不调整自己的策略。从2005年开始，Intel制定了一套“钟摆计划”(Tick-Tock)，并在2006年推出了新一代酷睿(Core)产品，重新逆转了与AMD的竞争局面。
+随着AMD的步步紧逼，Intel不得不调整自己的策略。从2005年开始，Intel制定了一套“钟摆计划”(Tick-Tock)，并在2006年推出了新一代酷睿(Core)产品，重新逆转了与AMD的竞争局面。时至今日，Core系列产品仍是广大消费者选择CPU的不二之选。
+\subsubsection{Core 2 Duo：初代Core}
+从2004到2006，Intel陷入了一段低迷时期。AMD凭借其K8系列，以“真双核”和较好的能效比赚足了世人的眼球。为了从AMD手中重新夺回CPU市场的主导地位，Intel启动了Tick-Tock计划，即用时钟的声响(Tick,Tock为拟声词)代表芯片制程和处理器微架构的更新。2005年，Core一代产品发布，标志这Core系列处理器的诞生。此时的Core，架构源自Pentium M，而新架构的开山之作，即是2006年7月发布的Core 2 Duo。
+\begin{figure}[H]
+    \centering
+    \subfigure[]{
+        \includegraphics[width=0.2\textwidth]{figure/core2duo.jpg}
+    }
+    \subfigure[]{
+        \includegraphics[width=0.15\textwidth]{figure/core2duoin.jpg}
+    }
+    \caption{Core 2 Duo}
+\end{figure}
+
+Core 2 Duo采用了65nm制程工艺，Intel声称它对比上一代产品有40\%的性能提升，同时减少40\%的功耗，各项数据均大幅领先当时AMD的Athlon 64X2。从此，Intel再次夺回了CPU的主导权。
+
+究其原因，Core 2 Duo抛弃了此前出现各种问题的Netburst架构，转而对Pentium M的微架构进行改进，定名Core架构。Core 2 Duo为双核心64位处理器，将双核共享的L2缓存提升至4MB，晶体管总数达到近3亿个，此外还加入了对EM64T与SSE4指令集的支持，使其拥有更强大的寻址空间。Core微架构的改进，实现了能效比的大幅提升。
+
+此后，由于Core架构的巨大成功，Intel将其也运用到了Celeron、Pentium乃至Xeon产品线中。
+
+\subsubsection{i系列处理器：更清晰的产品定位}
+随着Core 2 Duo的发布，Intel的优势再一次被确立，在随后的几年中，Tick-Tock战略稳步实施。2008年，Intel推出的新的Nehalem微架构，引入了新的命名方案。共有三个变体，Core i3，Core i5和Core i7。2008年11月17日，Intel推出了四核的Core i7处理器。2009年9月8日，第一款Core i5发布。2010年1月7日，首款Core i3发布。i3，i5和i7分别针对入门级消费者，普通消费者和高端消费者，但不再以核心数等技术指标命名。
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{figure/core1.jpg}
+        \caption{Intel Core i系列}
+    \end{center}
+\end{figure}
+
+在此后的几年中，Intel的i系列处理器陆续推出了一代(Nehalem微架构，45nm，2008)，二代(Sandy Bridge微架构，32nm，2011)，三代(Ivy Bridge微架构，22nm，2012)，四代(Haxwell微架构，22nm，2013)处理器。随着制程和微架构的提升，Core处理器的性能也稳步提升。其中有几个比较有突破性的进展：在Core一代中的部分处理器首次集成了图形处理单元(GPU)，Core i7在2010年首次发布了六核处理器，Core二代产品首次支持高性能DDR3内存等。经过几年的产品迭代改进，Intel Core系列在消费级CPU中已经形成了一家独大的局面。
+
+\subsubsection{14nm的爆发}
+2015年，CPU制程已经提升至14nm，intel也发布了基于14nm制程的Broadwell微架构的第五代Core处理器。这一代产品的高端型号甚至出现了8核甚至10核的夸张表现。此后发布的第六代(Skylake,2015)，第七代(Kaby Lake,2016)，第八代(Coffee Lake,2017/Whiskey Lake,2018)，第九代(Coffee Lake,2018)Core处理器同样基于14nm制程。
+
+在此期间，Intel两次提升了台式机处理器中的CPU核心数和线程数。在2017年5月，还发布了全新的Core i9系列，作为Core系列的旗舰产品。
+\begin{figure}[H]
+    \centering
+    \subfigure[Intel Core i9]{
+        \includegraphics[width=0.2\textwidth]{figure/corei9.jpg}
+    }
+    \subfigure[Intel Core 10th gen]{
+        \includegraphics[width=0.5\textwidth]{figure/core10.jpg}
+    }
+\end{figure}
+
+
+2019年，Core系列最新一代产品Core十代处理器发布，包括部分基于10nm制程，Comet Lake架构的处理器。Intel的处理器制程第一次突破了14nm。
+\begin{table}[H]
+    \centering
+    \caption{Intel核心数与线程数的发展}
+    \begin{tabular}{cccc}
+        \toprule
+        型号    & 第七代 & 第八代 & 第九代 \\
+        \midrule
+        Core i3 & 2C/4T  & 4C/4T  & 4C/4T  \\
+        Core i5 & 4C/4T  & 6C/6T  & 6C/6T  \\
+        Core i7 & 4C/8T  & 6C/12T & 8C/8T  \\
+        Core i9 & /      & /      & 8C/16T\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\newpage
+
+
+
+
 
 
 \section{AMD系列处理器发展历程}
