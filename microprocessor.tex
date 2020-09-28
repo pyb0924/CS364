@@ -39,7 +39,7 @@
 随着人类对计算机计算能力和便携性的要求不断提升，人们提出了“微型计算机”的概念，要实现这一点，首当其冲的就是将计算机的中央处理单元小型化。1971年，Intel公司制造出了第一个商用微处理器即4004，也宣告了第四代计算机时代的来临。从1971年至今的近50年间，随着个人计算机（PC）的成熟、发展和普及，作为计算机核心的CPU也得以迅猛发展。两家“本是同根生”的半导体公司，Intel和AMD，在这几十年间共同促成了CPU技术的不断提升，时至今日也是市面上处理器的最主流选择。本报告即梳理了从1971年至今，两家公司系列处理器的发展历程。
 \newpage
 \section{Intel系列处理器发展历程}
-1968年创立的Intel，是全球目前收入和市值最高的半导体公司。1971年，Intel的工程师发明了世界上第一款CPU4004。在之后的几十年间，集成电路的制造工艺和架构在不断进化，Intel却始终在大部分事件都在处理器市场中占据主导地位。本章将详细讲述Intel系列处理器的发展历程。
+1968年创立的Intel，是全球目前收入和市值最高的半导体公司，总部位于美国加州圣克拉拉。1971年，Intel的工程师发明了世界上第一款CPU4004。在之后的几十年间，集成电路的制造工艺和架构在不断进化，Intel却始终在大部分事件都在处理器市场中占据主导地位。本章将详细讲述Intel系列处理器的发展历程。
 
 \begin{figure}[H]
     \begin{center}
@@ -212,7 +212,7 @@ Core 2 Duo采用了65nm制程工艺，Intel声称它对比上一代产品有40\%
         Core i3 & 2C/4T  & 4C/4T  & 4C/4T  \\
         Core i5 & 4C/4T  & 6C/6T  & 6C/6T  \\
         Core i7 & 4C/8T  & 6C/12T & 8C/8T  \\
-        Core i9 & /      & /      & 8C/16T\\
+        Core i9 & /      & /      & 8C/16T \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -220,12 +220,44 @@ Core 2 Duo采用了65nm制程工艺，Intel声称它对比上一代产品有40\%
 
 
 
-
-
-
 \section{AMD系列处理器发展历程}
-\subsection{1969-1996 AMD公司的创立和Intel的代工厂}
-\subsection{1996-1999 K5和K6：自研CPU的初尝试}
+与从一诞生就开始引领整个CPU行业发展的Intel有所不同，比Intel只晚成立1年的Advanced Micro Devices(AMD)公司，起初只是Intel CPU的代工厂。然而AMD通过自身的发展运营，逐步在Intel主导的CPU市场中占有一席之地，始终与Intel处于高强度的竞争之中，甚至有一段时间还盖过了Intel的风头。本章接下来就将详细讲述AMD处理器的发展历程。
+
+\subsection{1969-1991 AMD公司的创立和与Intel的合作}
+\subsubsection{AMD的创立}
+1969年，杰里·桑德斯(Jerry Sanders)和他的七个同事，一起从仙童半导体公司辞职，创办了AMD公司。杰里·桑德斯本人也从仙童半导体公司的营销总监转身变为了AMD的创始人。因此，两家公司可谓是同源共生。
+
+
+\subsubsection{早期产品：从仿制开始}
+相比Intel创立之初的高声望，AMD创立之初时略显寒酸，甚至一开始只能在创始人的家中办公。为了弥补技术上的落后，AMD从创立之初便确立了自己第二供应商的地位，与Intel的技术导向不同，走物美价廉的路线尽快占领市场。
+
+1974年INTEL推出了8080芯片，一种史上最成功的8位处理器。在那时，8080就是行业的标杆，各国的各大公司纷纷启动仿造，AMD也不例外。1975年，AMD推出了8080的仿造版AM8080，采用了与Intel完全相同的设计。
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{figure/AM8080.jpg}
+        \caption{AMD的第一款处理器AM8080}
+    \end{center}
+\end{figure}
+
+\subsubsection{AMD与Intel的合作}
+1978年，随着Intel 8086处理器的推出，CPU正式进入x86时代，而AMD只能等待Intel的生产授权。然而，转机发生在1981年，IBM创建了PC并想要Intel的x86处理器，但前提是英特尔必须为其专利的x86微处理器提供第二来源的制造商。就这样，在IBM的推动下，AMD与Intel签署了长达十年的合作协议，后来又延长至1995年。协议的结果是：AMD成为英特尔的x86微处理器和相关芯片的第二制造商，英特尔提供了其8086，80186和80286芯片的制造权给AMD。
+
+有了这一合作协议，AMD得以继续仿制Intel的处理器。1982年1月，AMD推出了第二款处理器：仿自Intel 80286的AM286。它们有着相同的架构，然而AMD将其时钟频率由12.5MHz提升到了20MHz，而且以更低廉的价格占据了更多的市场。此时，Intel开始意识到，AMD的地位开始对自己构成了威胁。
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{figure/AM286.jpg}
+        \caption{AMD的第二款处理器AM286}
+    \end{center}
+\end{figure}
+
+\subsection{1991-1999 从AM386到K6：自研CPU的初尝试}
+1985年，Intel推出了80386处理器，感受到威胁的他们单方面撕毁了协议，拒绝给予AMD生产授权，AMD见状只能一纸诉状将Intel告上法庭。在与Intel在法庭周旋的过程中，AMD眼看要错过80386的黄金时期，在另一边开始了自己自研CPU的道路。
+
+时间来到1991年，AMD终于赶在Intel 80486发布前，发布了仿制的AM386处理器。在386处理器上，AMD同样采取了相同的做法：将主频从33MHz上调到了40MHz。
+
+
+
 \subsection{1999-2006 K7到Athlon 64X2 AMD的崛起和辉煌}
 \subsection{2006-2017 AMD失落的十年}
 \subsection{2017-至今 锐龙(Ryzen)架构与AMD的重生}
