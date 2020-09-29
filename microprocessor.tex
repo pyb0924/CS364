@@ -371,7 +371,12 @@ Athlon 64系列处理器的L1和L2缓存分别高达128KB和1MB，主频最高�
 \subsubsection{Phenon系列：失败的对抗产品}
 
 2007年，为了应对Core系列的猛烈攻势，AMD推出了Phenon(羿龙)处理器予以应对。Phenon系列为四核处理器，除了每个核心独享的128KB一级缓存和512KB二级缓存外，还集成了共享的2MB三级缓存。由于架构上的差距，AMD在单核性能上完全无法与Intel的Core系列抗衡，只能堆起核心数。
-
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{figure/phenon.jpg}
+        \caption{AMD Phenon系列徽标}
+    \end{center}
+\end{figure}
 然而，被AMD寄予厚望的Phenon系列却在不久后遭遇了滑铁卢：在Phenon系列的B2步进核心出现了TLB错误，会导致CPU因自身错误而死机。这种bug无法通过软件层面弥补，只能更换CPU，AMD的声誉因而跌入谷底。
 
 虽然2008年，AMD重新设计了适用于Phenon的B3步进核心，却仍然难以与同时期的Core 2竞争，只能退守中端市场。2009年，AMD的45nm制程Phenon\uppercase\expandafter{\romannumeral2}推出，然而同时期的Intel已经推出了i系列处理器。Phenon只能与最低端的i3竞争，面对i5和i7，AMD毫无办法，用Phenon对抗Core系列的策略也惨淡收场。
@@ -381,6 +386,16 @@ Athlon 64系列处理器的L1和L2缓存分别高达128KB和1MB，主频最高�
 
 \subsubsection{FX系列：困境中艰难的赌注}
 
+随着Phenon系列第一次对抗Core系列失败，AMD不得不进行新一轮的尝试。此时AMD想到了2006年收购的图形处理器生产商ATi，他们提出将图形处理器也集成在CPU中，即APU的构想。2011年，全新的Bulldozer(推土机)架构问世，该架构下的新款CPU被命名为AMD FX系列。
+
+除了APU的设想以外，AMD还赌了一把，通过堆核心和高频长流水线来提升FX系列处理器的性能。然而，这样的赌注并没有取得成功，APU的设想兼容性太差，PC和游戏厂商适配热情不足，堆核心和高频长流水线的架构即使在32nm的制程下，仍然逃脱不了高功耗和发热的命运。
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{figure/AMDFX.jpg}
+        \caption{AMD FX系列徽标}
+    \end{center}
+\end{figure}
+AMD FX系列日后还历经了Piledriver(打桩机)，Steamroller(压路机)，Excavator(挖掘机)三种同样以农机命名的微架构，AMD的戏称“农企”因此得名。但这些新的架构都是小修小补，没有真正的革命性变化，FX系列处理器始终反响平平，以至于竞争对手Intel开始对CPU性能“挤牙膏”等待AMD的步伐。
 
 
 \subsection{2017-至今 锐龙(Ryzen)系列处理器与AMD的重生}
