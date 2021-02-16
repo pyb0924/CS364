@@ -1,0 +1,166 @@
+.486
+SSEG SEGMENT USE16
+	STK DW 20 DUP(?)
+SSEG ENDS
+
+DSEG   SEGMENT USE16
+	DATA DD 10 DUP(?)
+    NUM=2
+    SIGN DB ?
+    BUF DB 11
+        DB ?
+	    DB 11 DUP(?)
+    
+DSEG ENDS
+
+CHAR_OUT MACRO CHAR
+	MOV DL,CHAR
+    MOV AH,02H
+	INT 21H
+ENDM
+
+CODE   SEGMENT USE16
+       ASSUME CS:CODE,DS:DSEG,SS:SSEG
+
+
+STRING_INPUT PROC
+		LEA DX,BUF
+	    MOV AH,0AH
+        INT 21H	
+        RET
+ENDP
+
+DATA_INPUT PROC
+;LOCAL STR_TO_NUM
+;LOCAL STR_TO_NUM_POP
+;LOCAL STR_TO_NUM_PUSH
+;LOCAL STORE
+		LEA BX,BUF
+        MOV CL,[BX+1]
+        MOV AX,0
+		MOV SIGN,0
+        MOV AL,[BX+2]
+        CMP AL,2DH
+        JNZ STR_TO_NUM_PUSH
+        ; negative process
+        MOV SIGN,1
+		
+        INC BX
+        DEC CL
+        MOV [BX],CL
+STR_TO_NUM:
+        MOV AL,[BX+2]
+STR_TO_NUM_PUSH:
+        SUB AL,30H
+        INC BX
+        PUSH AX
+        LOOP STR_TO_NUM
+
+        LEA DI,BUF
+        MOV CL,[DI+1]
+        
+        MOV EBX,0
+        MOV DX,0
+        MOV EDI,1 ;base
+STR_TO_NUM_POP:  
+		MOV EAX,0
+        POP AX
+        MUL EDI
+        ADD EBX,EAX
+        MOV EAX,EDI
+		SAL EAX,3
+		SAL EDI,1
+		ADD EDI,EAX
+        LOOP STR_TO_NUM_POP
+
+        MOV AL,SIGN
+		CMP AL,0
+        JZ STORE
+        NEG EBX
+STORE:        
+        MOV DS:[BP],EBX	
+        RET
+        ;DATA_OUTPUT DATA
+ENDP
+
+DATA_OUTPUT PROC
+	;LOCAL NUM_TO_STRING_PUSH
+	;LOCAL NUM_TO_STRING_POP
+		MOV EAX,0
+		MOV EDX,0
+		MOV AX,[DI]
+		MOV DX,[DI+2]
+		MOV SIGN,0
+		MOV CX,0
+		TEST DX,8000H
+		JZ NUM_TO_STRING_PUSH
+		; process negative num
+		MOV SIGN,2DH
+		NOT DX
+		NEG AX	;change to unsigned num
+		CMP AX,0
+		JNZ NUM_TO_STRING_PUSH
+		ADD DX,1
+NUM_TO_STRING_PUSH:
+		MOV BX,10
+		DIV BX
+		ADD DX,30H
+		PUSH DX
+		MOV DX,0
+		INC CX; n-bit decimal
+		CMP AX,0
+		JNZ NUM_TO_STRING_PUSH
+		MOV DL,SIGN
+		CMP DL,0
+		JZ NUM_TO_STRING_POP
+		CHAR_OUT DL
+NUM_TO_STRING_POP:
+		POP DX
+		CHAR_OUT DL
+		LOOP NUM_TO_STRING_POP
+
+		RET
+ENDP
+
+
+INPUT PROC
+    LEA BP,DATA
+    MOV SI,NUM
+INPUT_LOOP:
+    CALL STRING_INPUT
+    CHAR_OUT 0AH
+    CALL DATA_INPUT
+    ADD BP,4
+    DEC SI
+    CMP SI,0
+    JNZ INPUT_LOOP
+    RET
+ENDP
+; main
+MAIN PROC
+        MOV AX,DSEG
+        MOV DS,AX
+
+        ;input
+        CALL INPUT
+        ; \n
+        CHAR_OUT 0AH
+
+        ;CALL SORT
+        LEA DI, DATA
+        MOV SI,NUM	
+RES_OUTPUT:
+	    CALL DATA_OUTPUT
+	    CHAR_OUT 20H
+	    ADD DI,4
+	    DEC SI
+	    JNZ RES_OUTPUT
+        
+        
+        MOV AH,4CH
+        INT 21H
+MAIN ENDP
+CODE   ENDS
+       END  MAIN
+
+
